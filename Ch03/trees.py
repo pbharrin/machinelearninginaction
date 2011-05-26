@@ -12,7 +12,7 @@ def createDataSet():
                [1, 0, 'no'],
                [0, 1, 'no'],
                [0, 1, 'no']]
-    labels = ['booze','toxic dump']
+    labels = ['no surfacing','flippers']
     #change to discrete values
     return dataSet, labels
 
