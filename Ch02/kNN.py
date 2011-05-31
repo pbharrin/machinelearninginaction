@@ -25,10 +25,12 @@ def classify0(inX, dataSet, labels, k):
     classCount={}          
     for i in range(k):
         voteIlabel = labels[sortedDistIndicies[i]]
-        if classCount.has_key(voteIlabel):
-            classCount[voteIlabel] += 1
-        else:
-            classCount[voteIlabel] = 1
+        classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1
+        
+        #if classCount.has_key(voteIlabel):
+        #    classCount[voteIlabel] += 1
+        #else:
+        #    classCount[voteIlabel] = 1
     sortedClassCount = sorted(classCount.iteritems(), key=operator.itemgetter(1), reverse=True)
     return sortedClassCount[0][0]
 
