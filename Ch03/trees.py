@@ -85,11 +85,11 @@ def classify(inputTree,featLabels,testVec):
     firstStr = inputTree.keys()[0]
     secondDict = inputTree[firstStr]
     featIndex = featLabels.index(firstStr)
-    for key in secondDict.keys():
-        if testVec[featIndex] == key:
-            if type(secondDict[key]).__name__=='dict':
-                classLabel = classify(secondDict[key],featLabels,testVec)
-            else:   classLabel = secondDict[key]
+    key = testVec[featIndex]
+    valueOfFeat = secondDict[key]
+    if isinstance(valueOfFeat, dict): 
+        classLabel = classify(valueOfFeat, featLabels, testVec)
+    else: classLabel = valueOfFeat
     return classLabel
 
 def storeTree(inputTree,filename):
