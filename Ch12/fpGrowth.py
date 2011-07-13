@@ -64,12 +64,28 @@ def updateTree(items, inTree, headerTable, count):
     if len(items) > 1:#call updateTree() with remaining ordered items
         updateTree(items[1::], inTree.children[items[0]], headerTable, count)
         
-def updateHeader(nodeToTest, targetNode):
-    if nodeToTest.nodeLink == None:
-        nodeToTest.nodeLink = targetNode
-    else:
-        updateHeader(nodeToTest.nodeLink, targetNode)
+def updateHeader(nodeToTest, targetNode):   #this version does not use recursion
+    while (nodeToTest.nodeLink != None):    #Do not use recursion to traverse a linked list!
+        nodeToTest = nodeToTest.nodeLink
+    nodeToTest.nodeLink = targetNode
+        
+#def updateHeader(nodeToTest, targetNode):  #causing recursion too deep
+#    if nodeToTest.nodeLink == None:
+#        nodeToTest.nodeLink = targetNode
+#    else:
+#        updateHeader(nodeToTest.nodeLink, targetNode)
     
+#exhaustive way of finding prefix path
+#def findPrefixPath(basePat, treeNode, prefixPath, condPats):
+#    prefixPath.append(treeNode.name)
+#    if (basePat in treeNode.children) and (len(prefixPath) > 1): 
+#        #print prefixPath
+#        count = treeNode.children[basePat].count#pull up treeNode.children[basePat] and get count
+#        key = frozenset(prefixPath[1:])#make frozen set of prefixPath[1:] and use that as dict key
+#        condPats[key] = count
+#    for child in treeNode.children.values():
+#        findPrefixPath(basePat, child, prefixPath, condPats)
+#    del(prefixPath[-1])
     
 def ascendTree(leafNode, prefixPath): #ascends from leaf node to root
     if leafNode.parent != None:
@@ -128,10 +144,10 @@ def textParse(bigString):
     return [tok.lower() for tok in listOfTokens if len(tok) > 2]
 
 def getLotsOfTweets(searchStr):
-    CONSUMER_KEY = 'get from twitter'
-    CONSUMER_SECRET = 'get from twitter'
-    ACCESS_TOKEN_KEY = 'get by signing in with Oauth'
-    ACCESS_TOKEN_SECRET = 'get by signing in with Oauth'
+    CONSUMER_KEY = 'OAF9KcdsaifgPeBmE4wmgA'
+    CONSUMER_SECRET = 'fhK9vfgwdr2Qvtib33PIvl4bN8LnR2tIFE6ayIFVVg'
+    ACCESS_TOKEN_KEY = '18308928-LXr7EsuzereWTEkerdYEOcyoSqg8KCnyOFmIZ5FA'
+    ACCESS_TOKEN_SECRET = 'wFtS5wxaJB1bXf8rDWok0RLPVKmhZAYtDN23nmuo'
     api = twitter.Api(consumer_key=CONSUMER_KEY, consumer_secret=CONSUMER_SECRET,
                       access_token_key=ACCESS_TOKEN_KEY, 
                       access_token_secret=ACCESS_TOKEN_SECRET)
