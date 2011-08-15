@@ -127,9 +127,9 @@ def textParse(bigString):
 
 def getLotsOfTweets(searchStr):
     CONSUMER_KEY = ''
-    CONSUMER_SECRET = 'fhK9vfgwdr2Qvtib33PIvl4bN8LnR2tIFE6ayIFVVg'
-    ACCESS_TOKEN_KEY = '18308928-LXr7EsuzereWTEkerdYEOcyoSqg8KCnyOFmIZ5FA'
-    ACCESS_TOKEN_SECRET = 'wFtS5wxaJB1bXf8rDWok0RLPVKmhZAYtDN23nmuo'
+    CONSUMER_SECRET = ''
+    ACCESS_TOKEN_KEY = ''
+    ACCESS_TOKEN_SECRET = ''
     api = twitter.Api(consumer_key=CONSUMER_KEY, consumer_secret=CONSUMER_SECRET,
                       access_token_key=ACCESS_TOKEN_KEY, 
                       access_token_secret=ACCESS_TOKEN_SECRET)
