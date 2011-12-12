@@ -1,6 +1,6 @@
 '''
 Created on Oct 12, 2010
-Decision Tree Source Code for Machine Learning in Action Ch. 2
+Decision Tree Source Code for Machine Learning in Action Ch. 3
 @author: Peter Harrington
 '''
 from math import log
