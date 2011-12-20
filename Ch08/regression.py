@@ -99,7 +99,7 @@ def stageWise(xArr,yArr,eps=0.01,numIt=100):
     returnMat = zeros((numIt,n)) #testing code remove
     ws = zeros((n,1)); wsTest = ws.copy(); wsMax = ws.copy()
     for i in range(numIt):#could change this to while loop
-        print ws.T
+        #print ws.T
         lowestError = inf; 
         for j in range(n):
             for sign in [-1,1]:
