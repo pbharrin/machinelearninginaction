@@ -42,7 +42,7 @@ def kMeans(dataSet, k, distMeas=distEclud, createCent=randCent):
                     minDist = distJI; minIndex = j
             if clusterAssment[i,0] != minIndex: clusterChanged = True
             clusterAssment[i,:] = minIndex,minDist**2
-        #print centroids
+        print centroids
         for cent in range(k):#recalculate centroids
             ptsInClust = dataSet[nonzero(clusterAssment[:,0].A==cent)[0]]#get all the point in this cluster
             centroids[cent,:] = mean(ptsInClust, axis=0) #assign centroid to mean 
@@ -87,7 +87,7 @@ def geoGrab(stAddress, city):
     params['location'] = '%s %s' % (stAddress, city)
     url_params = urllib.urlencode(params)
     yahooApi = apiStem + url_params      #print url_params
-    #print yahooApi
+    print yahooApi
     c=urllib.urlopen(yahooApi)
     return json.loads(c.read())
 
@@ -134,6 +134,6 @@ def clusterClubs(numClust=5):
     for i in range(numClust):
         ptsInCurrCluster = datMat[nonzero(clustAssing[:,0].A==i)[0],:]
         markerStyle = scatterMarkers[i % len(scatterMarkers)]
-        ax1.scatter(ptsInCurrCluster[:,0], ptsInCurrCluster[:,1], marker=markerStyle, s=90)
-    ax1.scatter(myCentroids[:,0], myCentroids[:,1], marker='+', s=300)
+        ax1.scatter(ptsInCurrCluster[:,0].flatten().A[0], ptsInCurrCluster[:,1].flatten().A[0], marker=markerStyle, s=90)
+    ax1.scatter(myCentroids[:,0].flatten().A[0], myCentroids[:,1].flatten().A[0], marker='+', s=300)
     plt.show()
