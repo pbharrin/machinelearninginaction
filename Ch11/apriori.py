@@ -103,8 +103,8 @@ def pntRules(ruleList, itemMeaning):
             
 from time import sleep
 from votesmart import votesmart
+votesmart.apikey = 'get your api key first'
 def getActionIds():
-    votesmart.apikey = 'get your api key first'
     actionIdList = []; billTitleList = []
     fr = open('recent20bills.txt') 
     for line in fr.readlines():
