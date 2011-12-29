@@ -77,7 +77,7 @@ def calcConf(freqSet, H, supportData, brl, minConf=0.7):
     for conseq in H:
         conf = supportData[freqSet]/supportData[freqSet-conseq] #calc confidence
         if conf >= minConf: 
-            #print freqSet-conseq,'-->',conseq,'conf:',conf
+            print freqSet-conseq,'-->',conseq,'conf:',conf
             brl.append((freqSet-conseq, conseq, conf))
             prunedH.append(conseq)
     return prunedH
