@@ -14,7 +14,7 @@ class MRsvm(MRJob):
     
     def __init__(self, *args, **kwargs):
         super(MRsvm, self).__init__(*args, **kwargs)
-        self.data = pickle.load(open('C:\Users\Peter\workspace\MLbook\Ch18\svmDat2.txt'))
+        self.data = pickle.load(open('C:\Users\Peter\machinelearninginaction\Ch15\svmDat27'))
         self.w = 0
         self.eta = 0.69
         self.dataList = []
@@ -43,6 +43,7 @@ class MRsvm(MRJob):
         
     def map_fin(self):
         labels = self.data[:,-1]; X=self.data[:,0:-1]#reshape data into X and Y
+        if self.w == 0: self.w = [0.001]*shape(X)[1] #init w on first iteration
         for index in self.dataList:
             p = mat(self.w)*X[index,:].T #calc p=w*dataSet[key].T 
             if labels[index]*p < 1.0:
