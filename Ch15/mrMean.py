@@ -31,7 +31,9 @@ class MRmean(MRJob):
             cumN += nj
             cumVal += nj*float(valArr[1])
             cumSumSq += nj*float(valArr[2])
-        yield (cumVal/cumN, cumSumSq/cumN) #emit mean and var
+        mean = cumVal/cumN
+        var = (cumSumSq - 2*mean*cumVal + cumN*mean*mean)/cumN
+        yield (mean, var) #emit mean and var
         
     def steps(self):
         return ([self.mr(mapper=self.map, reducer=self.reduce,\
