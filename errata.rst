@@ -1,7 +1,8 @@
 Listing 2.2 bottom of page 25-page26
 
 A better version of the function file2matrix() is given below. The code in the book will work.
-```python
+
+```javascript
 def file2matrix(filename):
     fr = open(filename)
     arrayOLines = fr.readlines()
@@ -17,6 +18,7 @@ def file2matrix(filename):
         index += 1
     return returnMat,classLabelVector
 ```
+
 Page 26:
 
 datingDataMat, datingLabels = kNN.file2matrix('datingTestSet.txt') 
