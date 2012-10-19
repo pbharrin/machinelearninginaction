@@ -29,7 +29,7 @@ should be:
 
 ``datingDataMat, datingLabels = kNN.file2matrix('datingTestSet2.txt')``
 
-This will results in:
+This will result in:
 
 ``>>> datingLabels[0:20]``
 
