@@ -1,8 +1,9 @@
-Listing 2.2 bottom of page 25-page26
+**Listing 2.2 bottom of page 25-page26**
 
 A better version of the function file2matrix() is given below. The code in the book will work.
 
-```javascript
+
+```Python
 def file2matrix(filename):
     fr = open(filename)
     arrayOLines = fr.readlines()
@@ -19,7 +20,7 @@ def file2matrix(filename):
     return returnMat,classLabelVector
 ```
 
-Page 26:
+**Page 26:**
 
 datingDataMat, datingLabels = kNN.file2matrix('datingTestSet.txt') 
 should be:
@@ -34,23 +35,27 @@ Listing 2.5 page 32
 datingDataMat, datingLabels = file2matrix('datingTestSet.txt')
 should be:
 datingDataMat, datingLabels = file2matrix('datingTestSet2.txt')
-Listing 3.3 page 45
+
+**Listing 3.3 page 45**
 
 bestFeature = I 
 should be:
 bestFeature = i
-page 104 (not a code listing)
+
+**page 104 (not a code listing)**
 
 |wTx+b|/ ||w||
 should be:
 |wTA+b|/||w||
-Listing 8.4 page 168
+
+**Listing 8.4 page 168**
 
 The line:
 returnMat = zeros((numIt,n)) 
 Should be added before the line: 
 ws = zeros((n,1)); wsTest = ws.copy(); wsMax = ws.copy()
-Listing 9.5 page 195
+
+**Listing 9.5 page 195**
 
 yHat = mat((m,1))
 Should be:
