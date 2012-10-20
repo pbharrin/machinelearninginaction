@@ -1,3 +1,14 @@
+**On page 17: (not in a code listing)**
+
+The line: 
+
+``myEye = randMat*invRandMat`` 
+
+should appear above the line:
+
+``>>> myEye – eye(4)``
+
+
 **Listing 2.2 bottom of page 25-page26**
 
 A better version of the function file2matrix() is given below. The code in the book will work.
@@ -49,6 +60,24 @@ should be:
 
 ``datingDataMat, datingLabels = file2matrix('datingTestSet2.txt')``
 
+**Page 41 (not a code listing)**
+
+l(xi) = log2p(xi)
+
+Should be:
+
+l(xi) = -log2p(xi)
+
+**Page 42: Listing 3.1**
+
+The line:
+
+``labelCounts[currentLabel] = 0``
+
+should be indented from the lines above and below it.  The code in the repo is correct.
+
+
+
 **Listing 3.3 page 45**
 
 ``bestFeature = I``
@@ -56,6 +85,16 @@ should be:
 should be:
 
 ``bestFeature = i``
+
+
+**Page 52 (not a code listing)**
+
+``>>> treePlotter.retrieveTree(1)``
+
+should return:
+
+``{'no surfacing': {0: 'no', 1: {'flippers': {0: {'head': {0: 'no', 1: 'yes'}}, 1: 'no'}}}}``
+
 
 **page 104 (not a code listing)**
 
