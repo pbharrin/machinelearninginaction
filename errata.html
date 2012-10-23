@@ -50,6 +50,17 @@ Hi thanks for taking a look at <a href="http://www.manning.com/pharrington"><b>M
 Author Online Forum</a>. 
 </p>
 
+<p>
+<h2>On page 17: (not in a code listing)</h2>
+The line: </br>
+myEye = randMat*invRandMat </br>
+
+should appear above the line:</br>
+>>> myEye – eye(4)</br>
+</p>
+
+
+
 <h2>Listing 2.2 bottom of page 25-page26</h2>
 A better version of the function file2matrix() is given below.  The code in the book will work. 
 <pre>
@@ -92,10 +103,38 @@ datingDataMat, datingLabels = file2matrix('datingTestSet.txt')</br>
 should be:</br>
 datingDataMat, datingLabels = file2matrix('datingTestSet2.txt')</br>
 
+<p>
+<h2>Page 41 (not a code listing)</h2>
+l(x<sub>i</sub>) = log<sub>2</sub>p(x<sub>i</sub>)</br> 
+Should be:</br>
+l(x<sub>i</sub>) = -log<sub>2</sub>p(x<sub>i</sub>) </br>
+</p>
+
+<p>
+<h2>Page 42: Listing 3.1</h2>
+The line:</br>
+labelCounts[currentLabel] = 0</br>
+should be indented from the lines above and below it.  The code in the repo is correct.
+</p>
+
+
+
 <h2>Listing 3.3 page 45</h2>
 bestFeature = I </br>
 should be:</br>
 bestFeature = i</br>
+
+<h2>Page 52 (not a code listing)</h2>
+>>> treePlotter.retrieveTree(1)</br>
+should return:</br>
+{'no surfacing': {0: 'no', 1: {'flippers': {0: {'head': {0: 'no', 1: 'yes'}}, 1: 'no'}}}}</br>
+
+<h2>Page 92</h2>
+Before the line:</br>
+>>> reload(logRegres)</br>
+add the line:</br>
+>>> from numpy import * </br>
+At the beginning of the book I mention that this should be added to every interactive session, but it will be helpful for people to see this line here if they don’t remember that.  
 
 <h2>page 104 (not a code listing)</h2>
  |wTx+b|/ ||w||</br>
