@@ -95,6 +95,13 @@ should return:
 
 ``{'no surfacing': {0: 'no', 1: {'flippers': {0: {'head': {0: 'no', 1: 'yes'}}, 1: 'no'}}}}``
 
+**Listing 4.7 Page 81**
+
+``print "SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**``
+
+should be:
+
+``print "SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**SF**"``
 
 **page 104 (not a code listing)**
 
