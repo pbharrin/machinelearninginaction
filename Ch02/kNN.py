@@ -17,7 +17,7 @@ from os import listdir
 
 def classify0(inX, dataSet, labels, k):
     dataSetSize = dataSet.shape[0]
-    diffMat = tile(inX, (dataSetSize,1)) - dataSet
+    diffMat = asarray(inX) - dataSet
     sqDiffMat = diffMat**2
     sqDistances = sqDiffMat.sum(axis=1)
     distances = sqDistances**0.5
@@ -60,8 +60,8 @@ def autoNorm(dataSet):
     ranges = maxVals - minVals
     normDataSet = zeros(shape(dataSet))
     m = dataSet.shape[0]
-    normDataSet = dataSet - tile(minVals, (m,1))
-    normDataSet = normDataSet/tile(ranges, (m,1))   #element wise divide
+    normDataSet = dataSet - minVals
+    normDataSet = normDataSet/ranges   #element wise divide
     return normDataSet, ranges, minVals
    
 def datingClassTest():
