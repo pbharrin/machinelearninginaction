@@ -32,13 +32,13 @@ def setOfWords2Vec(vocabList, inputSet):
 def trainNB0(trainMatrix,trainCategory):
     numTrainDocs = len(trainMatrix)
     numWords = len(trainMatrix[0])
-    pAbusive = sum(trainCategory)/float(numTrainDocs)
-    p0Num = ones(numWords); p1Num = ones(numWords)      #change to ones() 
+    pAbusive = sum(trainCategory)/float(numTrainDocs)   #probability of trainCategory to be 1
+    p0Num = ones(numWords); p1Num = ones(numWords)      #change to ones()
     p0Denom = 2.0; p1Denom = 2.0                        #change to 2.0
     for i in range(numTrainDocs):
         if trainCategory[i] == 1:
-            p1Num += trainMatrix[i]
-            p1Denom += sum(trainMatrix[i])
+            p1Num += trainMatrix[i] #numerator
+            p1Denom += sum(trainMatrix[i])  #denominator
         else:
             p0Num += trainMatrix[i]
             p0Denom += sum(trainMatrix[i])
@@ -82,7 +82,7 @@ def textParse(bigString):    #input is big string, #output is word list
     
 def spamTest():
     docList=[]; classList = []; fullText =[]
-    for i in range(1,26):
+    for i in range(1,26):   #get 25 positive and 25 negative data-sets
         wordList = textParse(open('email/spam/%d.txt' % i).read())
         docList.append(wordList)
         fullText.extend(wordList)
@@ -93,7 +93,7 @@ def spamTest():
         classList.append(0)
     vocabList = createVocabList(docList)#create vocabulary
     trainingSet = range(50); testSet=[]           #create test set
-    for i in range(10):
+    for i in range(10): #randomly choose 10 to be test set, and 40 to be training set
         randIndex = int(random.uniform(0,len(trainingSet)))
         testSet.append(trainingSet[randIndex])
         del(trainingSet[randIndex])  
@@ -169,3 +169,5 @@ def getTopWords(ny,sf):
     print "NY**NY**NY**NY**NY**NY**NY**NY**NY**NY**NY**NY**NY**NY**NY**NY**"
     for item in sortedNY:
         print item[0]
+
+testingNB();
