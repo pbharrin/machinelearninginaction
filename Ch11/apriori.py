@@ -41,8 +41,8 @@ def aprioriGen(Lk, k): #creates Ck
     lenLk = len(Lk)
     for i in range(lenLk):
         for j in range(i+1, lenLk): 
-            L1 = list(Lk[i])[:k-2]; L2 = list(Lk[j])[:k-2]
-            L1.sort(); L2.sort()
+            L1 = list(Lk[i]).sort()[:k-2]
+            L2 = list(Lk[j]).sort()[:k-2]
             if L1==L2: #if first k-2 elements are equal
                 retList.append(Lk[i] | Lk[j]) #set union
     return retList
