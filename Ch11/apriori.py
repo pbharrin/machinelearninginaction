@@ -66,10 +66,7 @@ def generateRules(L, supportData, minConf=0.7):  #supportData is a dict coming f
     for i in range(1, len(L)):#only get the sets with two or more items
         for freqSet in L[i]:
             H1 = [frozenset([item]) for item in freqSet]
-            if (i > 1):
-                rulesFromConseq(freqSet, H1, supportData, bigRuleList, minConf)
-            else:
-                calcConf(freqSet, H1, supportData, bigRuleList, minConf)
+            rulesFromConseq(freqSet, H1, supportData, bigRuleList, minConf)
     return bigRuleList         
 
 def calcConf(freqSet, H, supportData, brl, minConf=0.7):
@@ -84,6 +81,8 @@ def calcConf(freqSet, H, supportData, brl, minConf=0.7):
 
 def rulesFromConseq(freqSet, H, supportData, brl, minConf=0.7):
     m = len(H[0])
+    if m==1:
+        calcConf(freqSet,H,supportData,brl,minConf)
     if (len(freqSet) > (m + 1)): #try further merging
         Hmp1 = aprioriGen(H, m+1)#create Hm+1 new candidates
         Hmp1 = calcConf(freqSet, Hmp1, supportData, brl, minConf)
